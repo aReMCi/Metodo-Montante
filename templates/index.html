@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - Método de Montante</title>
+    <link rel="stylesheet" href="/static/css/montante.css">
+    <script src="/static/js/montante.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>Grupo #8 - Calculadora: Método de Montante</h1>
+        <h3> para solucion de sistemas de ecuaciones lineales</h3>
+        <p>Elige el tamaño del sistema y escribe los datos de cada ecuación.</p>
+
+        <form id="configuracion" class="panel">
+            <label for="dimension">Número de incógnitas</label>
+            <div class="selector">
+                <input type="number" id="dimension" min="1" max="10"
+                       step="1" value="3" aria-describedby="ayuda-dimension" required>
+                <button type="submit" id="generar">Generar matrices</button>
+            </div>
+            <p id="ayuda-dimension" class="ayuda">
+                De 1 a 10 incógnitas. Para n incógnitas se necesitan n ecuaciones.
+            </p>
+        </form>
+
+        <p id="estado" role="status"></p>
+
+        <form id="formulario" hidden>
+            <p class="ayuda">Cada fila representa la misma ecuación en ambas matrices.
+                Puedes ingresar números negativos, ceros y decimales.</p>
+
+            <div class="matrices">
+                <section class="panel" aria-labelledby="titulo-coeficientes">
+                    <h2 id="titulo-coeficientes">Matriz de coeficientes A</h2>
+                    <div id="coeficientes" class="tabla-contenedor"></div>
+                </section>
+
+                <section class="panel" aria-labelledby="titulo-independientes">
+                    <h2 id="titulo-independientes">Términos independientes b</h2>
+                    <div id="independientes" class="tabla-contenedor"></div>
+                </section>
+            </div>
+
+            <button type="submit" id="calcular">Calcular Montante</button>
+        </form>
+
+        <section id="revision" class="panel" aria-labelledby="titulo-revision" hidden>
+            <h2 id="titulo-revision" tabindex="-1">Datos ingresados</h2>
+            <p>Estas son las matrices utilizadas en el cálculo.</p>
+            <div class="matrices">
+                <div>
+                    <h3>Coeficientes A</h3>
+                    <div id="resumen-coeficientes" class="tabla-contenedor"></div>
+                </div>
+                <div>
+                    <h3>Términos independientes b</h3>
+                    <div id="resumen-independientes" class="tabla-contenedor"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultados" aria-labelledby="titulo-resultados" hidden>
+            <h2 id="titulo-resultados" tabindex="-1">Iteraciones del método de Montante</h2>
+            <p>Cada tabla muestra la matriz aumentada al terminar una iteración.
+                La última columna contiene los términos independientes.</p>
+            <div id="iteraciones"></div>
+
+            <section class="panel" aria-labelledby="titulo-soluciones">
+                <h2 id="titulo-soluciones">Solución del sistema</h2>
+                <p>Dividimos el término independiente de cada fila entre su elemento diagonal.</p>
+                <ul id="soluciones"></ul>
+            </section>
+        </section>
+    </main>
+</body>
+
+<footer>
+    <p>Grupo #8 - MAT-205-SE - 2026 - UAGRM - FICCT</p>
+</footer>
+</html>
