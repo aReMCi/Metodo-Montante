@@ -10,8 +10,7 @@
 <body>
     <main>
         <h1>Grupo #8 - Calculadora: Método de Montante</h1>
-        <h3> para solucion de sistemas de ecuaciones lineales</h3>
-        <p>Elige el tamaño del sistema y escribe los datos de cada ecuación.</p>
+        <p class="titulos">Elige el tamaño del sistema y escribe los datos de cada ecuación.</p>
 
         <form id="configuracion" class="panel">
             <label for="dimension">Número de incógnitas</label>
@@ -25,7 +24,7 @@
             </p>
         </form>
 
-        <p id="estado" role="status"></p>
+        <p class="titulos" id="estado" role="status"></p>
 
         <form id="formulario" hidden>
             <p class="ayuda">Cada fila representa la misma ecuación en ambas matrices.
@@ -38,7 +37,7 @@
                 </section>
 
                 <section class="panel" aria-labelledby="titulo-independientes">
-                    <h2 id="titulo-independientes">Términos independientes b</h2>
+                    <h2 id="titulo-independientes">Términos independientes B</h2>
                     <div id="independientes" class="tabla-contenedor"></div>
                 </section>
             </div>
@@ -62,8 +61,8 @@
         </section>
 
         <section id="resultados" aria-labelledby="titulo-resultados" hidden>
-            <h2 id="titulo-resultados" tabindex="-1">Iteraciones del método de Montante</h2>
-            <p>Cada tabla muestra la matriz aumentada al terminar una iteración.
+            <h2 class="titulos" id="titulo-resultados" tabindex="-1">Iteraciones del método de Montante</h2>
+            <p class="titulos">Cada tabla muestra la matriz aumentada al terminar una iteración.
                 La última columna contiene los términos independientes.</p>
             <div id="iteraciones"></div>
 
@@ -78,5 +77,7 @@
 
 <footer>
     <p>Grupo #8 - MAT-205-SE - 2026 - UAGRM - FICCT</p>
+    <p>Desarrollado Por: Richard Medeiros Cuellar</p>
+    <p><a href="https://github.com/aReMCi">GitHub</a></p>
 </footer>
 </html>

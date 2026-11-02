@@ -45,7 +45,6 @@ def calcular():
     try:
         with np.errstate(over='raise', divide='raise', invalid='raise'):
             resultado = metodo.calcular_montante()
-            soluciones = resultado[:, -1] / np.diag(resultado[:, :-1])
     except ValueError as error:
         return jsonify(error=str(error)), 422
     except FloatingPointError:
@@ -55,7 +54,7 @@ def calcular():
     return jsonify(
         iteraciones=metodo.iteraciones,
         matriz_final=resultado.tolist(),
-        soluciones=soluciones.tolist(),
+        soluciones=metodo.soluciones.tolist(),
     )
 
 

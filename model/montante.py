@@ -6,8 +6,10 @@ class montante:
         self.matriz = np.hstack((matriz_coeficientes, matriz_independientes))
         self.filas,self.columnas = self.matriz.shape
         self.iteraciones = []
+        self.soluciones = None
 
     def calcular_montante(self):
+        self.soluciones = None
         if self.columnas != self.filas + 1:
             raise ValueError("La matriz aumentada debe tener n filas y n + 1 columnas.")
 
@@ -44,7 +46,7 @@ class montante:
 
                 self.matriz[i][k] = 0
 
-            # Guardamos una instantánea para mostrar este paso en el navegador.
+            # Guardamos los datos de cada iteracionpara mostrar este paso en el navegador.
             self.iteraciones.append({
                 "numero": k + 1,
                 "pivote": float(pivote),
@@ -54,8 +56,12 @@ class montante:
             })
             pivote_anterior = pivote
 
+        # Calculamos cada incógnita usando el término independiente y su diagonal.
+        self.soluciones = self.matriz[:, -1] / np.diag(self.matriz[:, :-1])
+
         return self.matriz
             
-#print(montante(np.array([[-6, 4, 5], [-2, 1, 2], [5, -3, -4]]), np.array([[17], [6], [-13]])).calcular_montante())
+if __name__ == '__main__':
+    print(montante(np.array([[-6, 4, 5], [-2, 1, 2], [5, -3, -4]]), np.array([[17], [6], [-13]])).calcular_montante())
 #print(montante(np.array([[0, 2, 1], [3, 1, 2], [1, 4, 3]]), np.array([[8], [13], [6]])).calcular_montante())
 #print(montante(np.array([ [2, 3, 1],[4, 1, 2],[3, 2, 5] ]),np.array([  [10],[11],[17]])).calcular_montante())

@@ -1,7 +1,7 @@
 :root {
     font-family: roboto, sans-serif;
     color: #1f2937;
-    background: #f4f6fa;
+    background: Black;
     line-height: 1.5;
 }
 
@@ -22,15 +22,27 @@ main {
     
 h1 { 
     margin-bottom: 8px; 
+    text-align: center;
+    color: white;
 }
 h2 {
     margin-top: 0; font-size: 1.15rem;
-    
 }
 h3 { 
     font-size: 1rem; 
 }
 
+h4 {
+    font-size: 0.95rem;
+    margin-top: 0;
+    text-align: center;
+}
+
+.titulos {
+    color: white;
+    font-size: 
+    0.95rem; 
+}
 .panel {
     background: white;
     border: 1px solid #d7dfeb;
