@@ -60,8 +60,20 @@ class montante:
         self.soluciones = self.matriz[:, -1] / np.diag(self.matriz[:, :-1])
 
         return self.matriz
-            
+
+
+#ejemplo en consola
 if __name__ == '__main__':
-    print(montante(np.array([[-6, 4, 5], [-2, 1, 2], [5, -3, -4]]), np.array([[17], [6], [-13]])).calcular_montante())
-#print(montante(np.array([[0, 2, 1], [3, 1, 2], [1, 4, 3]]), np.array([[8], [13], [6]])).calcular_montante())
-#print(montante(np.array([ [2, 3, 1],[4, 1, 2],[3, 2, 5] ]),np.array([  [10],[11],[17]])).calcular_montante())
+    coeficientes = np.array([
+        [-6,  4,  5],
+        [-2,  1,  2],
+        [ 5, -3, -4]
+    ])
+
+    independientes = np.array([[17], [6], [-13]])
+
+    metodo = montante(coeficientes, independientes)
+    print(metodo.calcular_montante())
+
+    for i, valor in enumerate(metodo.soluciones, start=1):
+        print(f"x{i} = {valor}")
